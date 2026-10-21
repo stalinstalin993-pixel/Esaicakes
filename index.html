@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESAI CAKES | The Unique Taste of Cakes - Palavoor, Tamil Nadu</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FFFDF9',
+            blush: '#FCE7F3',
+            cocoa: '#3E2723',
+            rose: '#E11D48',
+            gold: '#F59E0B'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream text-cocoa font-sans antialiased relative selection:bg-rose selection:text-white">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 hover:opacity-95 transition group">
+        <img src="images/logo.png" alt="ESAI CAKES Logo" class="w-11 h-11 object-contain rounded-full shadow-sm border-2 border-amber-300 group-hover:scale-105 transition-transform" />
+        <div>
+          <span class="tracking-tight block leading-tight font-serif font-black text-xl md:text-2xl text-cocoa">ESAI CAKES</span>
+          <span class="text-[10px] md:text-xs text-amber-700 tracking-wider uppercase block font-sans font-bold -mt-0.5">The unique taste of cakes</span>
+        </div>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#catalog" class="hover:text-rose transition">Our Cakes</a>
+        <a href="#custom-order" class="hover:text-rose transition">Custom Order</a>
+        <a href="#why-us" class="hover:text-rose transition">Why Choose Us</a>
+        <a href="#contact-us" class="hover:text-rose transition">Contact & Location</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <!-- Cart Trigger Button -->
+        <button id="open-cart-btn" class="relative bg-pink-50 hover:bg-pink-100 text-cocoa border border-pink-200 px-3.5 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition shadow-sm hover:shadow active:scale-95" aria-label="Open Cart">
+          <span class="text-base">🛒</span>
+          <span class="hidden sm:inline">Cart</span>
+          <span id="cart-count-badge" class="bg-rose text-white text-xs font-extrabold min-w-[20px] h-5 px-1.5 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <a href="#custom-order" class="bg-rose text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-700 transition shadow-sm hidden sm:inline-block">
+          Custom Order
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-amber-50/50 via-pink-50/30 to-cream py-12 md:py-18 px-4 overflow-hidden">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xs border border-amber-200">
+            <span>★</span> The Unique Taste of Cakes
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-pink-100 text-rose text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xs">
+            <span>📍</span> Palavoor, Tamil Nadu
+          </span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-black leading-tight text-cocoa">
+          Freshly Handcrafted by <span class="text-rose">ESAI CAKES</span>
+        </h1>
+        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+          Welcome to <strong>ESAI CAKES</strong>, located at GDS Complex in Palavoor. Explore our collection of 50 signature celebration cakes—from grand wedding tiers and kids' birthday favorites to 100% eggless delights, edible photo prints, and brownies!
+        </p>
+        <div class="flex flex-wrap gap-4 pt-1">
+          <a href="#catalog" class="bg-cocoa text-white px-7 py-3.5 rounded-full font-semibold hover:bg-stone-800 transition shadow-md flex items-center gap-2">
+            <span>🎂</span> Explore 50 Cakes Menu
+          </a>
+          <a href="#custom-order" class="bg-white border-2 border-cocoa text-cocoa px-7 py-3.5 rounded-full font-semibold hover:bg-pink-50 transition shadow-sm">
+            Custom Cake Inquiry
+          </a>
+        </div>
+
+        <!-- Quick Address Link to Google Maps -->
+        <a href="https://www.google.com/maps/place/ESAI+CAKES/@8.2039157,77.5743268,17z/data=!4m14!1m7!3m6!1s0x3b048bbf6f6dabcf:0x94bb3f0b1abce792!2sGDS+complex!8m2!3d8.2039157!4d77.5743268!16s%2Fg%2F11gsn41s1h!3m5!1s0x3b048b415cfe04bb:0xca898d08f03bb19a!8m2!3d8.2029379!4d77.5746567!16s%2Fg%2F11wjdh6hf6?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-gray-600 hover:text-rose pt-2 bg-white/80 hover:bg-white backdrop-blur-sm px-4 py-2 rounded-xl border border-pink-100 shadow-xs hover:shadow transition">
+          <span class="text-rose font-bold">📍 Bakery:</span>
+          <span>GDS COMPLEX, High school Street, Pazhvoor, Palavoor - 627114</span>
+          <span class="text-amber-600 font-bold ml-1">Open in Maps ↗</span>
+        </a>
+      </div>
+
+      <div class="relative flex justify-center items-center">
+        <div class="absolute -inset-4 bg-gradient-to-r from-amber-200/60 via-rose-200/40 to-pink-200/60 rounded-3xl blur-2xl opacity-70 -z-10"></div>
+        <div class="relative w-full max-w-lg">
+          <img src="images/hero-cake.jpg" 
+               alt="ESAI CAKES Signature Celebration Cake" 
+               class="rounded-3xl shadow-2xl w-full h-auto max-h-[520px] object-contain border-4 border-white bg-white/50 backdrop-blur-xs transition hover:scale-[1.01] duration-500" />
+          <div class="absolute -bottom-3 sm:-bottom-4 left-4 bg-white/95 backdrop-blur-md py-2.5 px-3.5 rounded-2xl shadow-xl border border-pink-100 flex items-center gap-2.5">
+            <img src="images/logo.png" alt="ESAI CAKES Seal" class="w-10 h-10 rounded-full border border-amber-300 p-0.5" />
+            <div>
+              <p class="font-bold text-xs text-cocoa leading-tight">100% Fresh Daily</p>
+              <p class="text-[10px] text-gray-500">Baked to order with love</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Banner -->
+  <section id="why-us" class="py-10 bg-white border-y border-pink-100">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="p-3">
+        <div class="text-3xl mb-1.5">🧁</div>
+        <h3 class="font-bold text-sm md:text-base">100% Freshly Baked</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Zero preservatives, baked daily in Palavoor</p>
+      </div>
+      <div class="p-3">
+        <div class="text-3xl mb-1.5">🌱</div>
+        <h3 class="font-bold text-sm md:text-base">100% Eggless Options</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Available for all designs & flavours</p>
+      </div>
+      <div class="p-3">
+        <div class="text-3xl mb-1.5">🎨</div>
+        <h3 class="font-bold text-sm md:text-base">Custom Themes & Prints</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Edible photo prints, fondant & multi-tier</p>
+      </div>
+      <div class="p-3">
+        <div class="text-3xl mb-1.5">🛒</div>
+        <h3 class="font-bold text-sm md:text-base">Instant Cart & WhatsApp</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Add to cart & checkout in 1 tap</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cake Catalog & Category Filter -->
+  <section id="catalog" class="py-16 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-rose text-xs font-bold uppercase tracking-wider bg-pink-100 px-3 py-1 rounded-full">
+        Fresh Daily Catalog
+      </span>
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 mb-3">Our Cake Collection</h2>
+      <p class="text-gray-600 text-sm md:text-base">
+        Select a category below to explore 10 fresh cakes each. Click <strong>"Add to Cart"</strong> to combine items, or order directly on WhatsApp.
+      </p>
+    </div>
+
+    <!-- Filter Tabs (10 items per category) -->
+    <div id="filter-tabs" class="flex flex-wrap justify-center gap-2.5 mb-10">
+      <button data-category="All" class="filter-btn active bg-rose text-white border border-rose px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-sm flex items-center gap-1.5">
+        <span>All</span>
+        <span class="text-xs bg-white/25 px-2 py-0.5 rounded-full">50</span>
+      </button>
+      <button data-category="Wedding Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+        <span>💍 Wedding Cakes</span>
+        <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
+      </button>
+      <button data-category="Kids' Birthday" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+        <span>🎈 Kids' Birthday</span>
+        <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
+      </button>
+      <button data-category="Eggless" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+        <span>🌱 Eggless</span>
+        <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
+      </button>
+      <button data-category="Photo Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+        <span>📸 Photo Cakes</span>
+        <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
+      </button>
+      <button data-category="Brownies/Cupcakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+        <span>🧁 Brownies/Cupcakes</span>
+        <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
+      </button>
+    </div>
+
+    <!-- Active Category Header & Count indicator -->
+    <div class="flex items-center justify-between mb-6 pb-2 border-b border-pink-100">
+      <div class="flex items-center gap-2">
+        <h3 id="category-heading" class="text-xl font-serif font-bold text-cocoa">All Cakes</h3>
+        <span id="category-badge-count" class="text-xs bg-pink-100 text-rose font-bold px-2.5 py-0.5 rounded-full">50 items</span>
+      </div>
+      <button id="view-cart-link" class="text-rose text-sm font-bold hover:underline flex items-center gap-1">
+        <span>View Cart</span> <span>🛒</span>
+      </button>
+    </div>
+
+    <!-- Dynamic Cake Grid -->
+    <div id="cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Populated automatically by app.js -->
+    </div>
+  </section>
+
+  <!-- Custom Cake Inquiry Form -->
+  <section id="custom-order" class="py-16 bg-pink-50/70 border-t border-pink-100 px-4">
+    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-10 border border-pink-100">
+      <div class="text-center mb-8">
+        <span class="text-rose text-xs font-bold uppercase tracking-wider bg-pink-100 px-3 py-1 rounded-full">
+          Have a Design in Mind?
+        </span>
+        <h2 class="text-3xl font-serif font-bold mt-2">Custom Cake Inquiry</h2>
+        <p class="text-gray-600 text-sm mt-1">Fill out the details below and send directly to <strong>ESAI CAKES</strong> on WhatsApp for an instant customized quote.</p>
+      </div>
+
+      <form id="custom-cake-form" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Weight Selection -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Select Weight</label>
+            <select id="cake-weight" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white">
+              <option value="0.5 kg (Half kg)">0.5 kg (Half kg)</option>
+              <option value="1 kg" selected>1 kg</option>
+              <option value="2 kg">2 kg</option>
+              <option value="Custom Multi-Tier (3kg+)">Custom Multi-Tier (3kg+)</option>
+            </select>
+          </div>
+
+          <!-- Egg / Eggless Preference -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Preference</label>
+            <select id="cake-preference" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white">
+              <option value="Eggless (100% Vegetarian)">🌱 Eggless (100% Vegetarian)</option>
+              <option value="With Egg">🥚 With Egg</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Flavour -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Choose Flavour</label>
+            <select id="cake-flavour" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white">
+              <option value="Belgian Chocolate Truffle">Belgian Chocolate Truffle</option>
+              <option value="Red Velvet Cream Cheese">Red Velvet Cream Cheese</option>
+              <option value="Classic Butterscotch">Classic Butterscotch</option>
+              <option value="Rasmalai Fusion">Rasmalai Fusion</option>
+              <option value="Fresh Alphonso Mango">Fresh Alphonso Mango</option>
+              <option value="Fresh Fruit / Pineapple">Fresh Fruit / Pineapple</option>
+              <option value="Other (Specify in notes)">Other (Specify in notes)</option>
+            </select>
+          </div>
+
+          <!-- Date Needed -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Delivery / Pickup Date</label>
+            <input type="date" id="cake-date" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white" />
+          </div>
+        </div>
+
+        <!-- Message on Cake -->
+        <div>
+          <label class="block text-sm font-semibold mb-1">Message on the Cake</label>
+          <input type="text" id="cake-message" placeholder="e.g., Happy 25th Anniversary Mom & Dad!" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white" />
+        </div>
+
+        <!-- Extra Design Notes -->
+        <div>
+          <label class="block text-sm font-semibold mb-1">Special Instructions / Theme Details (Optional)</label>
+          <textarea id="cake-notes" rows="2" placeholder="Tell us about your theme, colors, or if you have a reference picture to share on WhatsApp..." class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose bg-white"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 text-base">
+          <span>💬 Send Custom Order to ESAI CAKES on WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cart-drawer-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-full w-full sm:w-[440px] bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+      <!-- Drawer Header -->
+      <div class="p-5 border-b border-pink-100 flex items-center justify-between bg-pink-50/60">
+        <div class="flex items-center gap-3">
+          <img src="images/logo.png" alt="ESAI CAKES" class="w-9 h-9 rounded-full border border-amber-300 bg-white" />
+          <div>
+            <h3 class="text-lg font-serif font-bold text-cocoa leading-tight">ESAI CAKES Cart</h3>
+            <p class="text-xs text-gray-500"><span id="cart-drawer-count">0</span> item(s) selected</p>
+          </div>
+        </div>
+        <button id="close-cart-btn" class="text-gray-400 hover:text-rose p-2 rounded-full hover:bg-white transition" aria-label="Close cart">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Drawer Cart Items Container (Scrollable) -->
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-3.5 divide-y divide-pink-50">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Drawer Footer -->
+      <div id="cart-drawer-footer" class="p-5 border-t border-pink-100 bg-cream/80 space-y-3.5">
+        <div class="space-y-1.5 text-sm">
+          <div class="flex justify-between text-gray-600">
+            <span>Total Items:</span>
+            <span id="cart-total-qty" class="font-bold text-cocoa">0</span>
+          </div>
+          <div class="flex justify-between text-base font-bold text-cocoa pt-2 border-t border-pink-200/60">
+            <span>Estimated Total:</span>
+            <span id="cart-total-price" class="text-2xl text-rose font-extrabold">₹0</span>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 text-amber-900 text-xs p-2.5 rounded-xl text-center font-medium flex items-center justify-center gap-1.5 border border-amber-200/60">
+          <span>★</span>
+          <span>ESAI CAKES • The Unique Taste of Cakes</span>
+        </div>
+
+        <!-- WhatsApp Checkout Button -->
+        <button id="cart-whatsapp-checkout" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 text-base">
+          <span>💬 Checkout via WhatsApp</span>
+        </button>
+
+        <div class="flex items-center justify-between text-xs pt-1">
+          <button id="clear-cart-btn" class="text-gray-400 hover:text-red-600 transition">
+            Clear Cart
+          </button>
+          <button id="continue-shopping-btn" class="text-cocoa hover:text-rose font-semibold transition">
+            Continue Shopping →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Mobile Cart Pill -->
+  <button id="floating-cart-btn" class="fixed bottom-6 right-6 z-30 bg-rose hover:bg-pink-700 text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center gap-3 transition transform hover:scale-105 active:scale-95 border-2 border-white" aria-label="View Cart">
+    <span class="text-xl">🛒</span>
+    <span class="font-bold text-sm hidden xs:inline">Cart</span>
+    <span id="floating-cart-badge" class="bg-white text-rose text-xs font-black px-2 py-0.5 rounded-full shadow-sm">0</span>
+    <span id="floating-cart-total" class="font-extrabold text-sm border-l border-white/30 pl-2">₹0</span>
+  </button>
+
+  <!-- Toast Notification -->
+  <div id="cart-toast" class="fixed bottom-24 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 bg-cocoa text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition duration-300 pointer-events-none border border-white/20">
+    <span class="text-xl">🍰</span>
+    <span id="toast-message" class="text-sm font-medium">Added to cart!</span>
+    <button id="toast-view-cart" class="bg-rose text-white text-xs font-bold px-3 py-1.5 rounded-full hover:bg-pink-700 transition pointer-events-auto">
+      View Cart
+    </button>
+  </div>
+
+  <!-- Footer with Full Bakery Address -->
+  <footer id="contact-us" class="bg-cocoa text-cream py-14 px-4 border-t-4 border-amber-500">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <img src="images/logo.png" alt="ESAI CAKES Logo" class="w-14 h-14 rounded-full border-2 border-amber-400 bg-white p-0.5 shadow-md" />
+          <div>
+            <h3 class="text-2xl font-serif font-black text-white tracking-wide">ESAI CAKES</h3>
+            <p class="text-xs text-amber-300 font-bold">★ The unique taste of cakes ★</p>
+          </div>
+        </div>
+        <p class="text-stone-300 text-xs leading-relaxed">
+          Premium celebration cakes, custom birthday cakes, multi-tier wedding cakes, photo prints, and freshly baked brownies made daily with premium ingredients in Palavoor.
+        </p>
+      </div>
+
+      <div class="space-y-2.5">
+        <h4 class="font-bold text-white uppercase tracking-wider text-xs flex items-center gap-1.5">
+          <span>📍</span> Bakery Address & Hours
+        </h4>
+        <div class="text-stone-200 text-sm leading-relaxed bg-stone-800/50 p-3.5 rounded-xl border border-stone-700">
+          <p class="font-bold text-amber-300">ESAI CAKES</p>
+          <p>GDS COMPLEX, High school Street,</p>
+          <p>Pazhvoor, Palavoor,</p>
+          <p>Tamil Nadu 627114</p>
+        </div>
+        <p class="text-stone-300 text-xs flex items-center gap-1.5 pt-1">
+          <span>🕒</span> <strong>Open Daily:</strong> 9:00 AM – 9:30 PM
+        </p>
+        <a href="https://www.google.com/maps/place/ESAI+CAKES/@8.2039157,77.5743268,17z/data=!4m14!1m7!3m6!1s0x3b048bbf6f6dabcf:0x94bb3f0b1abce792!2sGDS+complex!8m2!3d8.2039157!4d77.5743268!16s%2Fg%2F11gsn41s1h!3m5!1s0x3b048b415cfe04bb:0xca898d08f03bb19a!8m2!3d8.2029379!4d77.5746567!16s%2Fg%2F11wjdh6hf6?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 underline font-semibold pt-1">
+          <span>🗺️</span> View ESAI CAKES on Google Maps →
+        </a>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-bold text-white uppercase tracking-wider text-xs flex items-center gap-1.5">
+          <span>💬</span> Direct WhatsApp Contact
+        </h4>
+        <p class="text-stone-300 text-xs leading-relaxed">
+          Have reference photos for your custom design? Send them directly to us on WhatsApp for fast consultation and instant booking.
+        </p>
+        <a id="footer-wa-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-green-700 transition shadow-md">
+          <span>💬</span> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-stone-800 text-center text-xs text-stone-400 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <p>© 2026 <strong>ESAI CAKES</strong> • The unique taste of cakes. All rights reserved.</p>
+      <a href="https://www.google.com/maps/place/ESAI+CAKES/@8.2039157,77.5743268,17z/data=!4m14!1m7!3m6!1s0x3b048bbf6f6dabcf:0x94bb3f0b1abce792!2sGDS+complex!8m2!3d8.2039157!4d77.5743268!16s%2Fg%2F11gsn41s1h!3m5!1s0x3b048b415cfe04bb:0xca898d08f03bb19a!8m2!3d8.2029379!4d77.5746567!16s%2Fg%2F11wjdh6hf6?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition flex items-center gap-1">
+        <span>📍 GDS COMPLEX, High school Street, Pazhvoor, Palavoor, Tamil Nadu 627114</span>
+        <span class="text-amber-400 font-bold">↗</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

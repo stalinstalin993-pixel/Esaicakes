@@ -1,0 +1,425 @@
+Plaintext├── index.html
+├── app.js
+├── cakes.json
+└── images/
+    └── cakes/
+        └── (Drop your client's local cake photos here later, e.g., truffle.jpg)
+1. cakes.json (The Cake Catalog Data)Save this file in your root folder. Right now, it uses high-resolution Unsplash images so your preview looks great immediately, but you can swap the URLs with /images/cakes/your-photo.jpg whenever the client sends photos.   JSON[
+  {
+    "id": "CK01",
+    "name": "Belgian Chocolate Truffle",
+    "category": "Kids' Birthday",
+    "price": "₹650 / kg",
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK02",
+    "name": "Classic Red Velvet Cream Cheese",
+    "category": "Wedding Cakes",
+    "price": "₹850 / kg",
+    "image": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK03",
+    "name": "Eggless Rasmalai Fusion Cake",
+    "category": "Eggless",
+    "price": "₹900 / kg",
+    "image": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK04",
+    "name": "2-Tier Floral Wedding Elegance",
+    "category": "Wedding Cakes",
+    "price": "₹2,400 / 2kg",
+    "image": "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK05",
+    "name": "Custom Edible Photo Print Cake",
+    "category": "Photo Cakes",
+    "price": "₹750 / kg",
+    "image": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK06",
+    "name": "Unicorn Theme Rainbow Cake",
+    "category": "Kids' Birthday",
+    "price": "₹1,100 / kg",
+    "image": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=600&q=80",
+    "available": false
+  },
+  {
+    "id": "CK07",
+    "name": "Assorted Fudge Brownie Box (6 pcs)",
+    "category": "Brownies/Cupcakes",
+    "price": "₹450 / box",
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  },
+  {
+    "id": "CK08",
+    "name": "Eggless Fresh Alphonso Mango",
+    "category": "Eggless",
+    "price": "₹700 / kg",
+    "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
+    "available": true
+  }
+]
+2. index.html (Main Website Layout)Save this in the root folder. It uses Tailwind CSS via CDN, Google Fonts, and includes the Hero Banner, Category Filter Tabs, Dynamic Catalog Grid, Custom Cake Inquiry Form, and Footer.   HTML<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Cravings Bakery | Custom Cakes & Desserts</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FFFDF9',
+            blush: '#FCE7F3',
+            cocoa: '#3E2723',
+            rose: '#E11D48'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream text-cocoa font-sans antialiased">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-pink-100">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="text-2xl font-serif font-bold text-cocoa flex items-center gap-2">
+        🎂 <span>Sweet Cravings</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#catalog" class="hover:text-rose transition">Our Cakes</a>
+        <a href="#custom-order" class="hover:text-rose transition">Custom Order</a>
+        <a href="#why-us" class="hover:text-rose transition">Why Choose Us</a>
+      </nav>
+      <a href="#custom-order" class="bg-rose text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-700 transition shadow-sm">
+        Custom Cake Inquiry
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-pink-50 to-cream py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <span class="inline-block bg-pink-100 text-rose text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+          100% Freshly Baked to Order
+        </span>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold leading-tight">
+          Handcrafted Cakes for Your Sweetest Moments
+        </h1>
+        <p class="text-gray-600 text-lg">
+          From dreamy wedding tiers to fun kids' birthday themes and 100% eggless delights—order directly on WhatsApp in seconds.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#catalog" class="bg-cocoa text-white px-7 py-3.5 rounded-full font-semibold hover:bg-stone-800 transition shadow">
+            Explore Cake Menu
+          </a>
+          <a href="#custom-order" class="bg-white border-2 border-cocoa text-cocoa px-7 py-3.5 rounded-full font-semibold hover:bg-pink-50 transition">
+            Build Custom Cake
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" 
+             alt="Signature Chocolate Cake" 
+             class="rounded-3xl shadow-2xl w-full object-cover h-[380px] md:h-[460px] border-4 border-white" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Banner -->
+  <section id="why-us" class="py-10 bg-white border-y border-pink-100">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-2xl mb-1">🧁</div>
+        <h3 class="font-bold text-sm md:text-base">100% Freshly Baked</h3>
+        <p class="text-xs text-gray-500">Zero preservatives, baked daily</p>
+      </div>
+      <div>
+        <div class="text-2xl mb-1">🌱</div>
+        <h3 class="font-bold text-sm md:text-base">Eggless Options</h3>
+        <p class="text-xs text-gray-500">Available for every single design</p>
+      </div>
+      <div>
+        <div class="text-2xl mb-1">🎨</div>
+        <h3 class="font-bold text-sm md:text-base">Custom Theme Cakes</h3>
+        <p class="text-xs text-gray-500">Photo prints, fondant & tiers</p>
+      </div>
+      <div>
+        <div class="text-2xl mb-1">⚡</div>
+        <h3 class="font-bold text-sm md:text-base">Quick WhatsApp Order</h3>
+        <p class="text-xs text-gray-500">No login or cart hassle</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cake Catalog & Category Filter -->
+  <section id="catalog" class="py-16 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-3">Our Cake Collection</h2>
+      <p class="text-gray-600">Select a category below and click "Order on WhatsApp" to book your cake immediately.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div id="filter-tabs" class="flex flex-wrap justify-center gap-2 mb-10">
+      <button data-category="All" class="filter-btn active bg-rose text-white px-5 py-2 rounded-full text-sm font-semibold transition">All</button>
+      <button data-category="Wedding Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition">Wedding Cakes</button>
+      <button data-category="Kids' Birthday" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition">Kids' Birthday</button>
+      <button data-category="Eggless" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition">Eggless</button>
+      <button data-category="Photo Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition">Photo Cakes</button>
+      <button data-category="Brownies/Cupcakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition">Brownies/Cupcakes</button>
+    </div>
+
+    <!-- Dynamic Cake Grid -->
+    <div id="cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Populated automatically by app.js -->
+    </div>
+  </section>
+
+  <!-- Custom Cake Inquiry Form -->
+  <section id="custom-order" class="py-16 bg-pink-50/70 border-t border-pink-100 px-4">
+    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-10 border border-pink-100">
+      <div class="text-center mb-8">
+        <span class="text-rose text-xs font-bold uppercase tracking-wider">Have a Design in Mind?</span>
+        <h2 class="text-3xl font-serif font-bold mt-1">Custom Cake Inquiry</h2>
+        <p class="text-gray-600 text-sm mt-1">Fill out the details below and send directly to our WhatsApp for an instant quote.</p>
+      </div>
+
+      <form id="custom-cake-form" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Weight Selection -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Select Weight</label>
+            <select id="cake-weight" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose">
+              <option value="0.5 kg (Half kg)">0.5 kg (Half kg)</option>
+              <option value="1 kg" selected>1 kg</option>
+              <option value="2 kg">2 kg</option>
+              <option value="Custom Multi-Tier (3kg+)">Custom Multi-Tier (3kg+)</option>
+            </select>
+          </div>
+
+          <!-- Egg / Eggless Preference -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Preference</label>
+            <select id="cake-preference" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose">
+              <option value="Eggless (100% Vegetarian)">🌱 Eggless (100% Vegetarian)</option>
+              <option value="With Egg">🥚 With Egg</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Flavour -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Choose Flavour</label>
+            <select id="cake-flavour" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose">
+              <option value="Belgian Chocolate Truffle">Belgian Chocolate Truffle</option>
+              <option value="Red Velvet Cream Cheese">Red Velvet Cream Cheese</option>
+              <option value="Classic Butterscotch">Classic Butterscotch</option>
+              <option value="Rasmalai Fusion">Rasmalai Fusion</option>
+              <option value="Fresh Fruit / Pineapple">Fresh Fruit / Pineapple</option>
+              <option value="Other (Specify in notes)">Other (Specify in notes)</option>
+            </select>
+          </div>
+
+          <!-- Date Needed -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Delivery / Pickup Date</label>
+            <input type="date" id="cake-date" required class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose" />
+          </div>
+        </div>
+
+        <!-- Message on Cake -->
+        <div>
+          <label class="block text-sm font-semibold mb-1">Message on the Cake</label>
+          <input type="text" id="cake-message" placeholder="e.g., Happy Birthday Riya!" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose" />
+        </div>
+
+        <!-- Extra Design Notes -->
+        <div>
+          <label class="block text-sm font-semibold mb-1">Special Instructions / Theme Details (Optional)</label>
+          <textarea id="cake-notes" rows="2" placeholder="Tell us about colors, theme, or if you have a reference photo to share on WhatsApp..." class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-rose"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base">
+          <span>💬 Send Custom Order on WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-cocoa text-cream py-12 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <h3 class="text-xl font-serif font-bold mb-2">🎂 Sweet Cravings Bakery</h3>
+        <p class="text-stone-300">Freshly baked custom cakes, cupcakes, and brownies made with premium ingredients for every celebration.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-xs">Shop Address & Hours</h4>
+        <p class="text-stone-300">123 Bakery Lane, Main Road</p>
+        <p class="text-stone-300 mt-1">Open Daily: 9:00 AM – 9:30 PM</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-2 uppercase tracking-wider text-xs">Direct Contact</h4>
+        <p class="text-stone-300 mb-3">Have a reference photo? Send it directly to us on WhatsApp!</p>
+        <a id="footer-wa-link" href="#" target="_blank" class="inline-block bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-green-700 transition">
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
+3. app.js (Dynamic Catalog & WhatsApp Generator)Save this in the root folder. Change WHATSAPP_NUMBER on Line 2 to your client's 10-digit mobile number with country code (91 for India).   JavaScript// REPLACE THIS WITH THE BAKERY OWNER'S WHATSAPP NUMBER (Include country code, no '+' sign)
+const WHATSAPP_NUMBER = "919876543210";
+
+// Data Source URL:
+// Option A (Static Git Push): Keep as 'cakes.json'
+// Option B (Google Sheets): Replace with your published Google Sheet CSV/JSON web link if needed later
+const DATA_URL = "cakes.json";
+
+let allCakes = [];
+
+const cakeGrid = document.getElementById("cake-grid");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const footerWaLink = document.getElementById("footer-wa-link");
+
+// Set footer quick-chat link
+footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I have a query about ordering a cake.")}`;
+
+// 1. Fetch Cakes from cakes.json
+async function loadCakes() {
+  try {
+    const response = await fetch(DATA_URL);
+    allCakes = await response.json();
+    renderCakes(allCakes);
+  } catch (error) {
+    cakeGrid.innerHTML = `<p class="col-span-full text-center text-red-600">Unable to load cake menu. Please make sure cakes.json is uploaded.</p>`;
+    console.error("Error loading cakes.json:", error);
+  }
+}
+
+// 2. Render Cake Cards into the Grid
+function renderCakes(cakes) {
+  if (cakes.length === 0) {
+    cakeGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-8">No cakes found in this category.</p>`;
+    return;
+  }
+
+  cakeGrid.innerHTML = cakes
+    .map((cake) => {
+      const waMessage = `Hi! I want to order the *${cake.name}* [Model #${cake.id}] priced at ${cake.price}. Is it available?`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+
+      return `
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-pink-100 flex flex-col">
+        <div class="relative h-56 overflow-hidden bg-pink-50">
+          <img src="${cake.image}" alt="${cake.name}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-cocoa text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
+            #${cake.id}
+          </span>
+          ${
+            !cake.available
+              ? `<span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">Sold Out</span>`
+              : `<span class="absolute top-3 right-3 bg-pink-100 text-rose text-xs font-semibold px-2.5 py-1 rounded-full">${cake.category}</span>`
+          }
+        </div>
+
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-cocoa line-clamp-1">${cake.name}</h3>
+            <p class="text-rose font-extrabold text-lg mt-1">${cake.price}</p>
+          </div>
+
+          <div class="mt-4">
+            ${
+              cake.available
+                ? `<a href="${waUrl}" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition">
+                    <span>Order on WhatsApp</span>
+                   </a>`
+                : `<button disabled class="w-full bg-gray-200 text-gray-500 text-sm font-semibold py-2.5 px-4 rounded-xl cursor-not-allowed">
+                    Currently Sold Out
+                   </button>`
+            }
+          </div>
+        </div>
+      </div>
+    `;
+    })
+    .join("");
+}
+
+// 3. Category Tab Filtering
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Update active button styling
+    filterButtons.forEach((b) => {
+      b.classList.remove("bg-rose", "text-white");
+      b.classList.add("bg-white", "text-cocoa");
+    });
+    btn.classList.remove("bg-white", "text-cocoa");
+    btn.classList.add("bg-rose", "text-white");
+
+    const selectedCategory = btn.getAttribute("data-category");
+    if (selectedCategory === "All") {
+      renderCakes(allCakes);
+    } else {
+      const filtered = allCakes.filter((cake) => cake.category === selectedCategory);
+      renderCakes(filtered);
+    }
+  });
+});
+
+// 4. Custom Cake Inquiry Form -> WhatsApp Handler
+const customForm = document.getElementById("custom-cake-form");
+customForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const weight = document.getElementById("cake-weight").value;
+  const preference = document.getElementById("cake-preference").value;
+  const flavour = document.getElementById("cake-flavour").value;
+  const date = document.getElementById("cake-date").value;
+  const message = document.getElementById("cake-message").value || "None";
+  const notes = document.getElementById("cake-notes").value || "None";
+
+  const customOrderText = 
+`Hello! I'd like to inquire about a *Custom Cake Order*:
+
+🎂 *Flavour:* ${flavour}
+⚖️ *Weight:* ${weight}
+🌱 *Preference:* ${preference}
+📅 *Date Needed:* ${date}
+✍️ *Message on Cake:* "${message}"
+📝 *Notes:* ${notes}`;
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(customOrderText)}`;
+  window.open(whatsappUrl, "_blank");
+});
+
+// Initialize catalog on page load
+loadCakes();
