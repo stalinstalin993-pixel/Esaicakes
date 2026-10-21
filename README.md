@@ -7,7 +7,7 @@
 
 ## 📍 Bakery Information & Address
 - **Shop Name**: ESAI CAKES
-- **WhatsApp & Phone**: [+91 89031 32261](https://wa.me/918903132261)
+- **WhatsApp & Phone**: [+91 78454 54969](https://wa.me/917845454969)
 - **Address**: GDS COMPLEX, High school Street, Pazhvoor, Palavoor, Tamil Nadu 627114
 - **Working Hours**: Open Daily: 9:00 AM – 9:30 PM
 - **Google Maps Location**: [ESAI CAKES on Google Maps](https://www.google.com/maps/place/ESAI+CAKES/@8.2039157,77.5743268,17z/data=!4m14!1m7!3m6!1s0x3b048bbf6f6dabcf:0x94bb3f0b1abce792!2sGDS+complex!8m2!3d8.2039157!4d77.5743268!16s%2Fg%2F11gsn41s1h!3m5!1s0x3b048b415cfe04bb:0xca898d08f03bb19a!8m2!3d8.2029379!4d77.5746567!16s%2Fg%2F11wjdh6hf6)

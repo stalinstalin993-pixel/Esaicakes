@@ -29,6 +29,7 @@
       }
     }
   </script>
+  <style>.no-scrollbar{scrollbar-width:none}.no-scrollbar::-webkit-scrollbar{display:none}</style>
 </head>
 <body class="bg-cream text-cocoa font-sans antialiased relative selection:bg-rose selection:text-white">
 
@@ -66,9 +67,9 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-amber-50/50 via-pink-50/30 to-cream py-12 md:py-18 px-4 overflow-hidden">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <div class="space-y-6">
+  <section class="relative bg-gradient-to-b from-amber-50/50 via-pink-50/30 to-cream py-8 md:py-18 px-4 overflow-hidden">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+      <div class="space-y-5 md:space-y-6">
         <div class="flex flex-wrap items-center gap-2">
           <span class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xs border border-amber-200">
             <span>★</span> The Unique Taste of Cakes
@@ -78,17 +79,17 @@
           </span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-black leading-tight text-cocoa">
+        <h1 class="text-[2.1rem] sm:text-5xl md:text-6xl font-serif font-black leading-tight text-cocoa">
           Freshly Handcrafted by <span class="text-rose">ESAI CAKES</span>
         </h1>
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 text-[15px] md:text-lg leading-relaxed">
           Welcome to <strong>ESAI CAKES</strong>, located at GDS Complex in Palavoor. Explore our collection of 50 signature celebration cakes—from grand wedding tiers and kids' birthday favorites to 100% eggless delights, edible photo prints, and brownies!
         </p>
-        <div class="flex flex-wrap gap-4 pt-1">
-          <a href="#catalog" class="bg-cocoa text-white px-7 py-3.5 rounded-full font-semibold hover:bg-stone-800 transition shadow-md flex items-center gap-2">
+        <div class="grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4 pt-1">
+          <a href="#catalog" class="bg-cocoa text-white px-7 py-3.5 rounded-full font-semibold hover:bg-stone-800 transition shadow-md flex items-center justify-center gap-2">
             <span>🎂</span> Explore 50 Cakes Menu
           </a>
-          <a href="#custom-order" class="bg-white border-2 border-cocoa text-cocoa px-7 py-3.5 rounded-full font-semibold hover:bg-pink-50 transition shadow-sm">
+          <a href="#custom-order" class="bg-white border-2 border-cocoa text-cocoa px-7 py-3.5 rounded-full font-semibold hover:bg-pink-50 transition shadow-sm text-center">
             Custom Cake Inquiry
           </a>
         </div>
@@ -106,7 +107,7 @@
         <div class="relative w-full max-w-lg">
           <img src="images/hero-cake.jpg" 
                alt="ESAI CAKES Signature Celebration Cake" 
-               class="rounded-3xl shadow-2xl w-full h-auto max-h-[520px] object-contain border-4 border-white bg-white/50 backdrop-blur-xs transition hover:scale-[1.01] duration-500" />
+               class="rounded-3xl shadow-2xl w-full h-auto max-h-[340px] md:max-h-[520px] object-contain border-4 border-white bg-white/50 backdrop-blur-xs transition hover:scale-[1.01] duration-500" />
           <div class="absolute -bottom-3 sm:-bottom-4 left-4 bg-white/95 backdrop-blur-md py-2.5 px-3.5 rounded-2xl shadow-xl border border-pink-100 flex items-center gap-2.5">
             <img src="images/logo.png" alt="ESAI CAKES Seal" class="w-10 h-10 rounded-full border border-amber-300 p-0.5" />
             <div>
@@ -120,8 +121,8 @@
   </section>
 
   <!-- Why Choose Us Banner -->
-  <section id="why-us" class="py-10 bg-white border-y border-pink-100">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+  <section id="why-us" class="py-6 md:py-10 bg-white border-y border-pink-100">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 text-center">
       <div class="p-3">
         <div class="text-3xl mb-1.5">🧁</div>
         <h3 class="font-bold text-sm md:text-base">100% Freshly Baked</h3>
@@ -146,8 +147,8 @@
   </section>
 
   <!-- Cake Catalog & Category Filter -->
-  <section id="catalog" class="py-16 max-w-6xl mx-auto px-4">
-    <div class="text-center max-w-3xl mx-auto mb-10">
+  <section id="catalog" class="py-10 sm:py-16 max-w-6xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
       <span class="text-rose text-xs font-bold uppercase tracking-wider bg-pink-100 px-3 py-1 rounded-full">
         Fresh Daily Catalog
       </span>
@@ -158,28 +159,28 @@
     </div>
 
     <!-- Filter Tabs (10 items per category) -->
-    <div id="filter-tabs" class="flex flex-wrap justify-center gap-2.5 mb-10">
-      <button data-category="All" class="filter-btn active bg-rose text-white border border-rose px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-sm flex items-center gap-1.5">
+    <div id="filter-tabs" class="no-scrollbar flex sm:flex-wrap sm:justify-center gap-2 sm:gap-2.5 mb-6 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto snap-x">
+      <button data-category="All" class="filter-btn shrink-0 snap-start whitespace-nowrap active bg-rose text-white border border-rose px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold transition shadow-sm flex items-center gap-1.5">
         <span>All</span>
         <span class="text-xs bg-white/25 px-2 py-0.5 rounded-full">50</span>
       </button>
-      <button data-category="Wedding Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+      <button data-category="Wedding Cakes" class="filter-btn shrink-0 snap-start whitespace-nowrap bg-white border border-pink-200 text-cocoa px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
         <span>💍 Wedding Cakes</span>
         <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
       </button>
-      <button data-category="Kids' Birthday" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+      <button data-category="Kids' Birthday" class="filter-btn shrink-0 snap-start whitespace-nowrap bg-white border border-pink-200 text-cocoa px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
         <span>🎈 Kids' Birthday</span>
         <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
       </button>
-      <button data-category="Eggless" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+      <button data-category="Eggless" class="filter-btn shrink-0 snap-start whitespace-nowrap bg-white border border-pink-200 text-cocoa px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
         <span>🌱 Eggless</span>
         <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
       </button>
-      <button data-category="Photo Cakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+      <button data-category="Photo Cakes" class="filter-btn shrink-0 snap-start whitespace-nowrap bg-white border border-pink-200 text-cocoa px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
         <span>📸 Photo Cakes</span>
         <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
       </button>
-      <button data-category="Brownies/Cupcakes" class="filter-btn bg-white border border-pink-200 text-cocoa px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
+      <button data-category="Brownies/Cupcakes" class="filter-btn shrink-0 snap-start whitespace-nowrap bg-white border border-pink-200 text-cocoa px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-pink-50 transition shadow-sm flex items-center gap-1.5">
         <span>🧁 Brownies/Cupcakes</span>
         <span class="text-xs bg-pink-100 text-rose px-2 py-0.5 rounded-full font-bold">10</span>
       </button>
@@ -197,14 +198,14 @@
     </div>
 
     <!-- Dynamic Cake Grid -->
-    <div id="cake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div id="cake-grid" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
       <!-- Populated automatically by app.js -->
     </div>
   </section>
 
   <!-- Custom Cake Inquiry Form -->
-  <section id="custom-order" class="py-16 bg-pink-50/70 border-t border-pink-100 px-4">
-    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-6 md:p-10 border border-pink-100">
+  <section id="custom-order" class="py-10 sm:py-16 bg-pink-50/70 border-t border-pink-100 px-4">
+    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-5 md:p-10 border border-pink-100">
       <div class="text-center mb-8">
         <span class="text-rose text-xs font-bold uppercase tracking-wider bg-pink-100 px-3 py-1 rounded-full">
           Have a Design in Mind?
@@ -271,7 +272,7 @@
         </div>
 
         <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 text-base">
-          <span>💬 Send Custom Order to ESAI CAKES on WhatsApp</span>
+          <span>💬 Send Order on WhatsApp</span>
         </button>
       </form>
     </div>
@@ -337,7 +338,7 @@
   </div>
 
   <!-- Floating Mobile Cart Pill -->
-  <button id="floating-cart-btn" class="fixed bottom-6 right-6 z-30 bg-rose hover:bg-pink-700 text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center gap-3 transition transform hover:scale-105 active:scale-95 border-2 border-white" aria-label="View Cart">
+  <button id="floating-cart-btn" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 bg-rose hover:bg-pink-700 text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center gap-3 transition transform hover:scale-105 active:scale-95 border-2 border-white" aria-label="View Cart">
     <span class="text-xl">🛒</span>
     <span class="font-bold text-sm hidden xs:inline">Cart</span>
     <span id="floating-cart-badge" class="bg-white text-rose text-xs font-black px-2 py-0.5 rounded-full shadow-sm">0</span>
@@ -395,7 +396,7 @@
           Have reference photos for your custom design? Send them directly to us on WhatsApp for fast consultation and instant booking.
         </p>
         <a id="footer-wa-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-green-700 transition shadow-md">
-          <span>💬</span> Chat on WhatsApp (+91 89031 32261)
+          <span>💬</span> Chat on WhatsApp (+91 78454 54969)
         </a>
       </div>
     </div>
@@ -410,6 +411,6 @@
   </footer>
 
   <!-- Main JavaScript -->
-  <script src="app.js?v=2.4" charset="UTF-8"></script>
+  <script src="app.js?v=2.6" charset="UTF-8"></script>
 </body>
 </html>

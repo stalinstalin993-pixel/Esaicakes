@@ -5,7 +5,7 @@ const U_MULT = "\u00D7";            // × (Multiplication symbol)
 const U_DIVIDER = "------------------------------------"; // Clean ASCII divider
 
 // REPLACE THIS WITH THE BAKERY OWNER'S WHATSAPP NUMBER (Include country code, no '+' sign)
-const WHATSAPP_NUMBER = "918903132261";
+const WHATSAPP_NUMBER = "917845454969";
 
 // Data Source URL:
 const DATA_URL = "cakes.json";
@@ -680,65 +680,65 @@ function renderCakes(cakes) {
       return `
       <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-pink-100 flex flex-col hover:-translate-y-1">
         <!-- Cake Image with Fallback -->
-        <div class="relative h-56 overflow-hidden bg-pink-50">
-          <img 
-            src="${cake.image}" 
-            alt="${cake.name}" 
-            loading="lazy" 
-            onerror="this.onerror=null; this.src='${cake.fallbackImage}';" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        <div class="relative aspect-square sm:aspect-auto sm:h-56 overflow-hidden bg-pink-50">
+          <img
+            src="${cake.image}"
+            alt="${cake.name}"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='${cake.fallbackImage}';"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <!-- ID Badge -->
-          <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-cocoa text-xs font-black px-2.5 py-1 rounded-full shadow-sm border border-pink-100">
+          <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-md text-cocoa text-[10px] sm:text-xs font-black px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-sm border border-pink-100">
             #${cake.id}
           </span>
 
           <!-- Category or Sold Out Badge -->
           ${
             !cake.available
-              ? `<span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">Sold Out</span>`
-              : `<span class="absolute top-3 right-3 bg-pink-50/95 backdrop-blur-md text-rose text-xs font-bold px-2.5 py-1 rounded-full shadow-sm border border-pink-100">${cake.category}</span>`
+              ? `<span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-red-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md animate-pulse">Sold Out</span>`
+              : `<span class="hidden sm:inline absolute top-3 right-3 bg-pink-50/95 backdrop-blur-md text-rose text-xs font-bold px-2.5 py-1 rounded-full shadow-sm border border-pink-100">${cake.category}</span>`
           }
         </div>
 
         <!-- Card Details -->
-        <div class="p-4 flex-1 flex flex-col justify-between">
+        <div class="p-2.5 sm:p-4 flex-1 flex flex-col justify-between">
           <div>
-            <h3 class="font-bold text-base text-cocoa group-hover:text-rose transition leading-snug line-clamp-1" title="${cake.name}">
+            <h3 class="font-bold text-sm sm:text-base text-cocoa group-hover:text-rose transition leading-snug line-clamp-2 sm:line-clamp-1" title="${cake.name}">
               ${cake.name}
             </h3>
-            <p class="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+            <p class="hidden sm:block text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
               ${cake.description || "Freshly baked on order using pure dairy butter and premium ingredients."}
             </p>
-            
+
             <!-- Price Display -->
-            <div class="mt-3 flex items-baseline justify-between border-t border-pink-50 pt-2">
-              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Price</span>
-              <span class="text-rose font-black text-lg tracking-tight">${cake.price}</span>
+            <div class="mt-1.5 sm:mt-3 flex items-baseline justify-between sm:border-t border-pink-50 sm:pt-2">
+              <span class="hidden sm:inline text-xs font-semibold text-gray-400 uppercase tracking-wider">Price</span>
+              <span class="text-rose font-black text-sm sm:text-lg tracking-tight">${cake.price}</span>
             </div>
           </div>
 
           <!-- Actions -->
-          <div class="mt-4 pt-1">
+          <div class="mt-2.5 sm:mt-4 sm:pt-1">
             ${
               cake.available
-                ? `<div class="flex items-center gap-2">
-                    <button 
-                      onclick="addToCart('${cake.id}', this)" 
-                      class="flex-1 bg-rose hover:bg-pink-700 text-white text-sm font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition shadow-sm hover:shadow active:scale-95">
-                      <span>🛒 Add to Cart</span>
+                ? `<div class="flex items-center gap-1.5 sm:gap-2">
+                    <button
+                      onclick="addToCart('${cake.id}', this)"
+                      class="flex-1 min-w-0 bg-rose hover:bg-pink-700 text-white text-xs sm:text-sm font-bold py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl flex items-center justify-center gap-1.5 transition shadow-sm hover:shadow active:scale-95 whitespace-nowrap">
+                      <span>🛒 Add<span class="hidden sm:inline"> to Cart</span></span>
                     </button>
-                    <a 
-                      href="${waSingleUrl}" 
-                      target="_blank" 
-                      title="Quick Order on WhatsApp" 
-                      class="bg-green-600 hover:bg-green-700 text-white p-2.5 rounded-xl flex items-center justify-center transition shadow-sm hover:shadow hover:scale-105 active:scale-95" 
+                    <a
+                      href="${waSingleUrl}"
+                      target="_blank"
+                      title="Quick Order on WhatsApp"
+                      class="bg-green-600 hover:bg-green-700 text-white p-2 sm:p-2.5 rounded-xl flex items-center justify-center transition shadow-sm hover:shadow hover:scale-105 active:scale-95"
                       aria-label="Order on WhatsApp">
-                      <span class="text-base leading-none">💬</span>
+                      <span class="text-sm sm:text-base leading-none">💬</span>
                     </a>
                   </div>`
-                : `<button disabled class="w-full bg-gray-100 text-gray-400 text-sm font-semibold py-2.5 px-4 rounded-xl cursor-not-allowed border border-gray-200">
-                    Currently Sold Out
+                : `<button disabled class="w-full bg-gray-100 text-gray-400 text-xs sm:text-sm font-semibold py-2 sm:py-2.5 px-2 sm:px-4 rounded-xl cursor-not-allowed border border-gray-200">
+                    Sold Out
                    </button>`
             }
           </div>
