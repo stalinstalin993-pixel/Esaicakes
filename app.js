@@ -632,7 +632,11 @@ async function loadCakes() {
 
 // Set footer quick-chat link
 if (footerWaLink) {
-  footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I have a query about ordering cakes from ESAI CAKES, Palavoor.")}`;
+  const footerMessage = 
+`🎂 *QUERY • ESAI CAKES*
+────────────────────
+Hello! I have a query about ordering cakes from ESAI CAKES, Palavoor.`;
+  footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(footerMessage)}`;
 }
 
 // 2. Render Cake Cards into Grid
@@ -649,7 +653,18 @@ function renderCakes(cakes) {
 
   cakeGrid.innerHTML = cakes
     .map((cake) => {
-      const waSingleMessage = `Hi! I would like to order the *${cake.name}* [Item #${cake.id}] priced at ${cake.price}. Is it available for delivery/pickup?`;
+      const waSingleMessage = 
+`🎂 *CAKE ORDER • ESAI CAKES*
+────────────────────
+Hello! I would like to order:
+
+🍰 *${cake.name}*
+🏷️ *Code:* #${cake.id}
+📂 *Category:* ${cake.category}
+💰 *Price:* ${cake.price}
+
+📍 *Bakery:* GDS COMPLEX, Palavoor
+Please confirm availability and delivery slot! Thank you! 🙏`;
       const waSingleUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waSingleMessage)}`;
 
       return `
@@ -970,26 +985,48 @@ if (cartWhatsappCheckout) {
     const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     const totalPrice = cart.reduce((sum, item) => sum + item.numericPrice * item.qty, 0);
 
+    const now = new Date();
+    const dateStr = now.toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+    const timeStr = now.toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true
+    });
+
     const itemsSummary = cart
       .map((item, idx) => {
-        const subtotal = (item.numericPrice * item.qty).toLocaleString("en-IN");
-        return `${idx + 1}. *${item.name}* [${item.id}]\n   Qty: ${item.qty} × ${item.price} = ₹${subtotal}`;
+        const itemTotal = (item.numericPrice * item.qty).toLocaleString("en-IN");
+        const unitPrice = item.numericPrice.toLocaleString("en-IN");
+        return (
+`${idx + 1}. *${item.name}* [${item.id}]
+   ▫️ Qty: ${item.qty} × ₹${unitPrice}
+   ▫️ Subtotal: *₹${itemTotal}*`
+        );
       })
       .join("\n\n");
 
     const whatsappMessage = 
-`Hello ESAI CAKES! 🎂
-I would like to place an order from my website cart:
+`🎂 *NEW ORDER • ESAI CAKES*
+────────────────────
+Hello! I would like to place an order from my website cart:
 
 🛒 *ORDERED ITEMS:*
-------------------------------------
+
 ${itemsSummary}
-------------------------------------
 
+────────────────────
 📦 *Total Items:* ${totalQty}
-💰 *Total Amount:* ₹${totalPrice.toLocaleString("en-IN")}
+💰 *TOTAL AMOUNT: ₹${totalPrice.toLocaleString("en-IN")}*
+────────────────────
 
-Please let me know the availability and payment/delivery details! Thank you!`;
+📍 *Bakery:* GDS COMPLEX, Palavoor
+🕒 *Date:* ${dateStr}, ${timeStr}
+
+Please confirm availability, preparation time, and delivery/pickup details! Thank you! 🙏`;
 
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(waUrl, "_blank");
@@ -1010,16 +1047,19 @@ if (customForm) {
     const notes = document.getElementById("cake-notes").value || "None";
 
     const customOrderText = 
-`Hello! I'd like to inquire about a *Custom Cake Order*:
+`🎂 *CUSTOM CAKE INQUIRY • ESAI CAKES*
+────────────────────
+Hello! I would like to inquire about a custom cake order:
 
-🎂 *Flavour:* ${flavour}
+🍰 *Flavour:* ${flavour}
 ⚖️ *Weight:* ${weight}
 🌱 *Preference:* ${preference}
 📅 *Date Needed:* ${date}
 ✍️ *Message on Cake:* "${message}"
-📝 *Special Notes:* ${notes}
+📝 *Special Instructions:* ${notes}
 
-Please let me know the price quotation and availability. Thank you!`;
+📍 *Bakery:* GDS COMPLEX, Palavoor
+Please provide the price quotation and availability. Thank you! 🙏`;
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(customOrderText)}`;
     window.open(whatsappUrl, "_blank");
