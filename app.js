@@ -1,16 +1,8 @@
-// Universal WhatsApp & Unicode Formatting Constants (ASCII safe escape sequences)
-const U_CAKE = "\u{1F382}";     // 🎂
-const U_CART = "\u{1F6D2}";     // 🛒
-const U_PACKAGE = "\u{1F4E6}";  // 📦
-const U_MONEY = "\u{1F4B0}";    // 💰
-const U_PIN = "\u{1F4CD}";      // 📍
-const U_CLOCK = "\u{1F552}";    // 🕒
-const U_PRAY = "\u{1F64F}";     // 🙏
-const U_SLICE = "\u{1F370}";    // 🍰
-const U_BULLET = "\u2022";      // •
-const U_RUPEE = "\u20B9";       // ₹
-const U_MULT = "\u00D7";        // ×
-const U_DIVIDER = "\u2500".repeat(24); // ────────────────────────
+// Universal WhatsApp Formatting Constants (100% resilient across all devices & Windows WhatsApp Web)
+const U_BULLET = "\u2022";          // • (Standard bullet, universally supported)
+const U_RUPEE = "\u20B9";           // ₹ (Indian Rupee symbol)
+const U_MULT = "\u00D7";            // × (Multiplication symbol)
+const U_DIVIDER = "------------------------------------"; // Clean ASCII divider
 
 // REPLACE THIS WITH THE BAKERY OWNER'S WHATSAPP NUMBER (Include country code, no '+' sign)
 const WHATSAPP_NUMBER = "918903132261";
@@ -647,7 +639,7 @@ async function loadCakes() {
 // Set footer quick-chat link
 if (footerWaLink) {
   const footerMessage = [
-    `${U_CAKE} *HELLO \u2022 ESAI CAKES*`,
+    "*HELLO \u2022 ESAI CAKES*",
     U_DIVIDER,
     "Hello! I have a question about ordering cakes from ESAI CAKES, Palavoor."
   ].join("\n");
@@ -669,19 +661,19 @@ function renderCakes(cakes) {
   cakeGrid.innerHTML = cakes
     .map((cake) => {
       const waSingleMessage = [
-        `${U_CAKE} *CAKE INQUIRY \u2022 ESAI CAKES*`,
+        "*CAKE INQUIRY \u2022 ESAI CAKES*",
         U_DIVIDER,
         "Hello! I would like to order this cake from your website:",
         "",
-        `${U_SLICE} *${cake.name}*`,
+        `*${cake.name}*`,
         `   ${U_BULLET} *Code:* #${cake.id}`,
         `   ${U_BULLET} *Category:* ${cake.category}`,
         `   ${U_BULLET} *Price:* ${cake.price}`,
         "",
         U_DIVIDER,
-        `${U_PIN} *Bakery:* GDS COMPLEX, Palavoor`,
+        `${U_BULLET} *Bakery:* GDS COMPLEX, Palavoor`,
         "",
-        `Please confirm availability and delivery slot! Thank you! ${U_PRAY}`
+        "Please confirm availability and delivery slot! Thank you!"
       ].join("\n");
       const waSingleUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waSingleMessage)}`;
 
@@ -1024,23 +1016,23 @@ if (cartWhatsappCheckout) {
       .join("\n\n");
 
     const whatsappMessage = [
-      `${U_CAKE} *NEW ORDER \u2022 ESAI CAKES*`,
+      "*NEW ORDER \u2022 ESAI CAKES*",
       U_DIVIDER,
       "Hello! I would like to place an order from my website cart:",
       "",
-      `${U_CART} *ORDERED ITEMS:*`,
+      "*ORDERED ITEMS:*",
       "",
       itemsSummary,
       "",
       U_DIVIDER,
-      `${U_PACKAGE} *Total Items:* ${totalQty}`,
-      `${U_MONEY} *TOTAL AMOUNT: ${U_RUPEE}${totalPrice.toLocaleString("en-IN")}*`,
+      `${U_BULLET} *Total Items:* ${totalQty}`,
+      `${U_BULLET} *TOTAL AMOUNT: ${U_RUPEE}${totalPrice.toLocaleString("en-IN")}*`,
       U_DIVIDER,
       "",
-      `${U_PIN} *Bakery:* GDS COMPLEX, Palavoor`,
-      `${U_CLOCK} *Date:* ${dateStr}, ${timeStr}`,
+      `${U_BULLET} *Bakery:* GDS COMPLEX, Palavoor`,
+      `${U_BULLET} *Date:* ${dateStr}, ${timeStr}`,
       "",
-      `Please confirm availability, preparation time, and delivery/pickup details! Thank you! ${U_PRAY}`
+      "Please confirm availability, preparation time, and delivery/pickup details! Thank you!"
     ].join("\n");
 
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -1062,11 +1054,11 @@ if (customForm) {
     const notes = document.getElementById("cake-notes").value || "None";
 
     const customOrderText = [
-      `${U_CAKE} *CUSTOM CAKE INQUIRY \u2022 ESAI CAKES*`,
+      "*CUSTOM CAKE INQUIRY \u2022 ESAI CAKES*",
       U_DIVIDER,
       "Hello! I would like to inquire about a custom cake order:",
       "",
-      `${U_SLICE} *Flavour:* ${flavour}`,
+      `*Flavour:* ${flavour}`,
       `   ${U_BULLET} *Weight:* ${weight}`,
       `   ${U_BULLET} *Preference:* ${preference}`,
       `   ${U_BULLET} *Date Needed:* ${date}`,
@@ -1074,9 +1066,9 @@ if (customForm) {
       `   ${U_BULLET} *Special Instructions:* ${notes}`,
       "",
       U_DIVIDER,
-      `${U_PIN} *Bakery:* GDS COMPLEX, Palavoor`,
+      `${U_BULLET} *Bakery:* GDS COMPLEX, Palavoor`,
       "",
-      `Please provide price quotation and availability! Thank you! ${U_PRAY}`
+      "Please provide price quotation and availability! Thank you!"
     ].join("\n");
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(customOrderText)}`;
