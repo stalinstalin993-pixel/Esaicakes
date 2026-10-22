@@ -636,6 +636,14 @@ async function loadCakes() {
   renderCakes(allCakes);
 }
 
+// Prevent picking past dates for custom orders (uses the phone's local date, not UTC)
+const cakeDateInput = document.getElementById("cake-date");
+if (cakeDateInput) {
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  cakeDateInput.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
 // Set footer quick-chat link
 if (footerWaLink) {
   const footerMessage = [
