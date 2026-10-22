@@ -2,7 +2,7 @@
  *  npx tailwindcss@3.4.17 -i src/input.css -o styles.css --minify
  */
 module.exports = {
-  content: ["./index.html", "./app.js"],
+  content: ["./index.html", "./admin.html", "./app.js"],
   theme: {
     extend: {
       fontFamily: {
